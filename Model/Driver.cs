@@ -31,9 +31,13 @@ namespace Model
 
         public void OwnCar(Car car)
         {
-            if (car!= null)
+            if (car!= null && Category.Contains(car.Category))
             {
                 Car = car;
+            }
+            else if(!Category.Contains(car.Category))
+            {
+                throw new Exception("Categories not match");
             }
         }
     }

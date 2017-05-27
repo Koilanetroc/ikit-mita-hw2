@@ -10,22 +10,25 @@ namespace Model
     public class Car
     {
         public string Model { get; }
-        public Car(string name, char category)
+        public Car(string model, string category)
         {
-            Model = name;
+            Model = model;
             CarPassport = new CarPassport(this);
             Category = category;
+            Color = Color.Blue;
         }
 
         //TODO default=синий
         public Color Color { get; set; }
+
         public string CarNumber { get; private set; }
-        public char Category { get; }
-        private CarPassport CarPassport { get; }
+        public string Category { get; }
+        public CarPassport CarPassport { get; }
 
         public void ChangeOwner(Driver driver,string carNumber)
         {
             CarPassport.Owner = driver;
+
             driver.OwnCar(this);
             CarNumber = carNumber;
         }
