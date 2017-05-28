@@ -17,7 +17,15 @@ namespace UI
                 Color = Color.DarkMagenta
             };
             Console.Write("A Owner of the car: ");
-            Console.WriteLine(lada.CarPassport.Owner?.Name ??"A owner is not exist.");
+
+            try
+            {
+                Console.WriteLine(lada.CarPassport.Owner.Name);
+            }
+            catch (NullReferenceException e)
+            {
+                Console.WriteLine("A owner is not exist.");
+            }
 
             Driver driver1 = new Driver(new DateTime(2007, 5, 27), "Voldemar")
             {
@@ -35,14 +43,27 @@ namespace UI
 
             driver1.Category.Add("D");
 
-            lada.ChangeOwner(driver1,"o777oo");
+            try
+            {
+                lada.ChangeOwner(driver1, "o777oo");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
             Console.Write("Number of the car: ");
             Console.WriteLine(driver1.Car.CarNumber);
             Console.Write("The Owner of the car is: ");
-            Console.WriteLine(lada.CarPassport.Owner.Name);
-
+            try
+            {
+                Console.WriteLine(lada.CarPassport.Owner.Name);
+            }
+            catch (NullReferenceException e)
+            {
+                Console.WriteLine("A owner is not exist.");
+            }
             Console.ReadLine();
-           
         }
     }
 }

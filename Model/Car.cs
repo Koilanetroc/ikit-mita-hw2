@@ -18,7 +18,6 @@ namespace Model
             Color = Color.Blue;
         }
 
-        //TODO default=синий
         public Color Color { get; set; }
 
         public string CarNumber { get; private set; }
