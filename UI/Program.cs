@@ -12,7 +12,7 @@ namespace UI
     {
         static void Main(string[] args)
         {
-            Car lada = new Car("Lada", "D")
+            Car lada = new Car("Lada", Category.D)
             {
                 Color = Color.DarkMagenta
             };
@@ -27,9 +27,9 @@ namespace UI
                 Console.WriteLine("A owner is not exist.");
             }
 
-            Driver driver1 = new Driver(new DateTime(2007, 5, 27), "Voldemar")
+            Driver driver1 = new Driver(new DateTime(2017, 6, 07), "Voldemar")
             {
-                Category = new List<string> { "B", "C" }
+                Category = new List<Category> { Category.B, Category.C }
             };
 
             try
@@ -41,7 +41,7 @@ namespace UI
                 Console.WriteLine(e.Message);
             }
 
-            driver1.Category.Add("D");
+            driver1.Category.Add(Category.D);
 
             try
             {

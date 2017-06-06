@@ -17,15 +17,21 @@ namespace Model
         public DateTime LicenseDate { get; }
         public string Name { get; }
 
-        public int Experience
+        public double Experience
         {
             get
             {
-                return DateTime.Now.Year-LicenseDate.Year ;
+                int years = DateTime.Now.Year - LicenseDate.Year;
+
+                if(LicenseDate.Month > DateTime.Now.Month || (LicenseDate.Day > DateTime.Now.Day && LicenseDate.Month == DateTime.Now.Month))
+                {
+                    return years - 1;
+                }
+                return years;
             }
         }
 
-        public List<string> Category { get; set; }
+        public List<Category> Category { get; set; }
 
         public Car Car { get; private set; }
 
