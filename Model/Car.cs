@@ -10,7 +10,7 @@ namespace Model
     public class Car
     {
         public string Model { get; }
-        public Car(string model, Category category)
+        public Car(string model, DriverCategory category)
         {
             Model = model;
             CarPassport = new CarPassport(this);
@@ -21,7 +21,7 @@ namespace Model
         public Color Color { get; set; }
 
         public string CarNumber { get; private set; }
-        public Category Category { get; }
+        public DriverCategory Category { get; }
         public CarPassport CarPassport { get; }
 
         public void ChangeOwner(Driver driver,string carNumber)

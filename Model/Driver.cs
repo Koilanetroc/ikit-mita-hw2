@@ -31,7 +31,7 @@ namespace Model
             }
         }
 
-        public List<Category> Category { get; set; }
+        public List<DriverCategory> Category { get; set; }
 
         public Car Car { get; private set; }
 

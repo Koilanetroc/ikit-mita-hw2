@@ -12,7 +12,7 @@ namespace UI
     {
         static void Main(string[] args)
         {
-            Car lada = new Car("Lada", Category.D)
+            Car lada = new Car("Lada", DriverCategory.D)
             {
                 Color = Color.DarkMagenta
             };
@@ -22,14 +22,14 @@ namespace UI
             {
                 Console.WriteLine(lada.CarPassport.Owner.Name);
             }
-            catch (NullReferenceException e)
+            catch
             {
                 Console.WriteLine("A owner is not exist.");
             }
 
             Driver driver1 = new Driver(new DateTime(2017, 6, 07), "Voldemar")
             {
-                Category = new List<Category> { Category.B, Category.C }
+                Category = new List<DriverCategory> { DriverCategory.B, DriverCategory.C }
             };
 
             try
@@ -41,7 +41,7 @@ namespace UI
                 Console.WriteLine(e.Message);
             }
 
-            driver1.Category.Add(Category.D);
+            driver1.Category.Add(DriverCategory.D);
 
             try
             {
@@ -59,7 +59,7 @@ namespace UI
             {
                 Console.WriteLine(lada.CarPassport.Owner.Name);
             }
-            catch (NullReferenceException e)
+            catch
             {
                 Console.WriteLine("A owner is not exist.");
             }
